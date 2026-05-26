@@ -18,4 +18,7 @@ awk 'NF && !seen[$0]++' /root/.ssh/authorized_keys > /root/.ssh/authorized_keys.
 mv /root/.ssh/authorized_keys.tmp /root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
 
+ssh-keygen -A
+
+echo "sshd ready on port 22"
 exec /usr/sbin/sshd -D -e -p 22
